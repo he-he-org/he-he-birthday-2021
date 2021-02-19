@@ -1,0 +1,8 @@
+.timelineBlocks {
+  display: flex;
+  flex-direction: column;
+
+  > *:not(:first-child) {
+    margin-top: 1rem;
+  }
+}

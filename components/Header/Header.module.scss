@@ -1,0 +1,24 @@
+@use "../variables";
+
+.root {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.languages {
+  display: flex;
+
+  > *:not(:first-child) {
+    margin-left: 1rem;
+  }
+}
+
+.language {
+  text-decoration: none;
+  color: black;
+
+  &.isActive {
+    color: variables.$red;
+  }
+}
