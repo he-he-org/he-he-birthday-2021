@@ -4,8 +4,8 @@ import { useRouter } from "next/router";
 import Link from "next/link";
 
 import s from "./Header.module.scss";
-import { LANGUAGES } from "../../services/i18n/constants.ts";
-import { MAIN_SITE_URL } from "../../services/env.ts";
+import { LANGUAGES } from "../../services/i18n/constants";
+import { MAIN_SITE_URL } from "../../services/env";
 
 interface Props {}
 

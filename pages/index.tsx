@@ -1,7 +1,6 @@
-import { getTimelineBlocks, PrismicDocument, ApiTimelineBlock } from "../api";
-import Layout from "../components/Layout/Layout.tsx";
-import { useRouter } from "next/router";
-import TimelineBlock from "../components/mainPage/TimelineBlock/TimelineBlock.tsx";
+import { ApiTimelineBlock, getTimelineBlocks, PrismicDocument } from "../api";
+import Layout from "../components/Layout/Layout";
+import TimelineBlock from "../components/mainPage/TimelineBlock/TimelineBlock";
 
 import s from "./index.module.scss";
 

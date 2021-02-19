@@ -1,8 +1,8 @@
 import Prismic from "@prismicio/client";
 import { Document } from "@prismicio/client/types/documents";
-import { Languages } from "../services/i18n/constants.ts";
+import { Languages } from "../services/i18n/constants";
 import { Language } from "@prismicio/client/types/ResolvedApi";
-import { PRISMIC_URL } from "../services/env.ts";
+import { PRISMIC_URL } from "../services/env";
 
 const apiPromise = Prismic.getApi(PRISMIC_URL, {});
 
@@ -29,7 +29,7 @@ export type PrismicTitle = PrismicTextItem<
   "heading1" | "heading2" | "heading3" | "heading4" | "heading5" | "heading6"
 >[];
 
-const LANG_TO_LOCALE: { [key in Language]: string } = {
+const LANG_TO_LOCALE = {
   en: "en-us",
   es: "es-es",
   ru: "ru",
