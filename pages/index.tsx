@@ -9,7 +9,6 @@ interface Props {
 }
 
 function HomePage({ textBlocks }: Props) {
-  console.log("textBlocks", textBlocks);
   return (
     <Layout>
       <div className={s.timelineBlocks}>
