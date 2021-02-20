@@ -17,7 +17,6 @@ interface Props {
 export default function TimelineBlock(props: Props) {
   const { imagePosition, timelineBlock } = props;
   const locale = useDateFnsLocale();
-  console.log("timelineBlock", timelineBlock);
   return (
     <div className={cn(s.root, s[`imagePosition-${imagePosition}`])}>
       <div className={s.image}>
