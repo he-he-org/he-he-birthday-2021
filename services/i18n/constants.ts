@@ -1,3 +1,3 @@
-export const LANGUAGES = ["en", "ru", "es"];
+export const LANGUAGES = ["ru", "en", "es"];
 
-export type Languages = typeof LANGUAGES[number];
+export type Language = typeof LANGUAGES[number];

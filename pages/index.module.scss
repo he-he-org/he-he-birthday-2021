@@ -1,8 +1,12 @@
+@use "../components/utils";
+@use "../components/variables";
+
 .timelineBlocks {
   display: flex;
   flex-direction: column;
+  margin-top: utils.rem(112);
 
-  > *:not(:first-child) {
-    margin-top: 1rem;
+  @include utils.not-first-child {
+    margin-top: utils.rem(60);
   }
 }

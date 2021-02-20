@@ -1,19 +1,32 @@
-import { ApiTimelineBlock, getTimelineBlocks, PrismicDocument } from "../api";
+import {
+  ApiIntro,
+  ApiTimelineBlock,
+  getIntroBlock,
+  getTimelineBlocks,
+  PrismicDocument,
+} from "../api";
 import Layout from "../components/Layout/Layout";
 import TimelineBlock from "../components/mainPage/TimelineBlock/TimelineBlock";
 
 import s from "./index.module.scss";
+import Intro from "../components/mainPage/Intro/Intro";
 
 interface Props {
+  intro: PrismicDocument<ApiIntro>;
   textBlocks: PrismicDocument<ApiTimelineBlock>[];
 }
 
-function HomePage({ textBlocks }: Props) {
+function HomePage({ intro, textBlocks }: Props) {
   return (
     <Layout>
+      <Intro intro={intro.data} />
       <div className={s.timelineBlocks}>
-        {textBlocks.map((doc) => (
-          <TimelineBlock key={doc.id} timelineBlock={doc.data} />
+        {textBlocks.map((doc, i) => (
+          <TimelineBlock
+            imagePosition={i % 2 === 0 ? "RIGHT" : "LEFT"}
+            key={doc.id}
+            timelineBlock={doc.data}
+          />
         ))}
       </div>
     </Layout>
@@ -26,16 +39,12 @@ export async function getStaticProps(
 ): Promise<{
   props: Props;
 }> {
-  // Call an external API endpoint to get posts
-  // const res = await fetch('https://.../posts')
-  // const posts = await res.json()
-
   const textBlocks = await getTimelineBlocks(context.locale);
+  const intro = await getIntroBlock(context.locale);
 
-  // By returning { props: { posts } }, the Blog component
-  // will receive `posts` as a prop at build time
   return {
     props: {
+      intro,
       textBlocks,
     },
   };

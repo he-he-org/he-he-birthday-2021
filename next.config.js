@@ -5,4 +5,7 @@ module.exports = {
     locales: ["en", "ru", "es"],
     defaultLocale: "ru",
   },
+  images: {
+    domains: ["he-he-birthday-2021.cdn.prismic.io"],
+  },
 };

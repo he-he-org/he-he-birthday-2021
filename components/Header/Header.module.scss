@@ -1,9 +1,30 @@
 @use "../variables";
+@use "../utils";
 
 .root {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 1rem;
+  margin-bottom: utils.rem(69);
+  align-items: center;
+
+  @include utils.not-first-child {
+    margin-left: utils.rem(22);
+  }
+}
+
+.backLink {
+  color: black;
+  text-decoration: none;
+
+  > span {
+    margin-left: utils.rem(22);
+  }
+}
+
+.line {
+  height: 2px;
+  flex: 1;
+  background: variables.$red;
 }
 
 .languages {

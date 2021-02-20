@@ -1,0 +1,11 @@
+@use "variables";
+
+@mixin not-first-child {
+  & > *:not(:first-child) {
+    @content
+  }
+}
+
+@function rem($px) {
+  @return #{($px / variables.$default-font-size)}rem;
+}

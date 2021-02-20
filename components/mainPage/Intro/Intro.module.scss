@@ -1,0 +1,67 @@
+@use "../../utils";
+@use "../../variables";
+
+.root {
+  display: grid;
+  grid-template-columns: max-content auto;
+  grid-gap: 4.375rem;
+}
+
+.left {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+.logo {
+  margin-top: utils.rem(34)
+}
+
+.donateButton {
+  background: variables.$red;
+  min-height: utils.rem(76);
+  color: white;
+  font-size: utils.rem(36);
+  padding: 0 utils.rem(32);
+  white-space: nowrap;
+  border-radius: utils.rem(9);
+  border: none;
+  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+  padding-bottom: 4px;
+  margin-top: utils.rem(78)
+}
+
+.right {
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  font-weight: 500;
+  color: variables.$red;
+  font-size: variables.$font-size-1;
+  margin-top: 1.8rem;
+  margin-bottom: 3.5rem;
+}
+
+.body,
+.body2 {
+  font-size: variables.$font-size-2;
+  font-weight: 300;
+  line-height: 1.375;
+
+  @include utils.not-first-child {
+    margin-top: utils.rem(16);
+  };
+}
+
+.body {
+  > p {
+    text-indent: 1em;
+  }
+}
+
+.body2 {
+  margin-top: utils.rem(73);
+}
