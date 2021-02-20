@@ -6,7 +6,6 @@ import { ApiTimelineBlock } from "../../../api";
 import RichText from "../../prismic/RichText/RichText";
 import Image from "../../prismic/Image/Image";
 import { useDateFnsLocale } from "../../../services/i18n/dateFns";
-import NextImage from "next/image";
 import Title from "../../prismic/Title/Title";
 
 interface Props {

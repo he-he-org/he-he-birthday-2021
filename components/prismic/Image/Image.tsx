@@ -1,4 +1,3 @@
-import NextImage, { ImageProps } from "next/image";
 import { PrismicImage } from "../../../api";
 
 interface Props {
@@ -6,9 +5,9 @@ interface Props {
 }
 
 export default function Image(props: Props): JSX.Element {
-  const { image, ...rest } = props;
+  const { image } = props;
   return (
-    <NextImage
+    <img
       width={image.dimensions.width}
       height={image.dimensions.height}
       src={image.url}

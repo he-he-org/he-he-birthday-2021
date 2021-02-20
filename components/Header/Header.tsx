@@ -6,7 +6,6 @@ import Link from "next/link";
 import s from "./Header.module.scss";
 import { Language, LANGUAGES } from "../../services/i18n/constants";
 import { MAIN_SITE_URL } from "../../services/env";
-import Image from "next/image";
 
 const LANGUAGE_TITLES: { [key in Language]: string } = {
   en: "Eng",
@@ -21,7 +20,7 @@ export default function Header(props: Props) {
   return (
     <div className={s.root}>
       <a href={MAIN_SITE_URL} className={s.backLink}>
-        <Image width={71} height={8} src="/header_arrow.svg" />
+        <img width={71} height={8} src="/header_arrow.svg" />
         <span>he-he.org</span>
       </a>
       <div className={s.line} />

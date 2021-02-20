@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { ApiIntro } from "../../../api";
 import RichText from "../../prismic/RichText/RichText";
 
@@ -14,9 +13,9 @@ export default function Intro(props: Props): JSX.Element {
   return (
     <div className={s.root}>
       <div className={s.left}>
-        <Image width={462} height={318} src="/intro_image.svg" />
+        <img width={462} height={318} src="/intro_image.svg" />
         <div className={s.logo}>
-          <Image width={328} height={85} src="/logo.svg" />
+          <img width={328} height={85} src="/logo.svg" />
         </div>
         <button className={s.donateButton}>
           <Title text={intro.donate_button} />
