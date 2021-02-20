@@ -1,4 +1,5 @@
 // import App from "next/app";
+import React from "react";
 import type { AppProps } from "next/app";
 import Head from "next/head";
 
@@ -13,6 +14,16 @@ function MyApp({ Component, pageProps }: AppProps) {
           href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,500;0,700;1,300;1,500&display=swap"
           rel="stylesheet"
         />
+        <script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=UA-167219453-1"
+        />
+        <script>
+          {`window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'UA-167219453-1');`}
+        </script>
       </Head>
       <Component {...pageProps} />
     </>
