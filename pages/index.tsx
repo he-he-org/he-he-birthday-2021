@@ -69,6 +69,7 @@ function HomePage({ intro, outro, textBlocks, donations }: Props) {
           />
         ))}
       </div>
+      <img className={s.footerPicture} src="/footer_picture.svg" />
     </Layout>
   );
 }

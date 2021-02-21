@@ -29,8 +29,8 @@ exports.handler = async function (event, context) {
         },
       ],
       mode: "payment",
-      success_url: `${ROOT_URL}/success`,
-      cancel_url: `${ROOT_URL}/cancel`,
+      success_url: `${ROOT_URL}`,
+      cancel_url: `${ROOT_URL}`,
     });
 
     return {

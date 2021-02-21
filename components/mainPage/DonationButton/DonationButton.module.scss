@@ -14,6 +14,10 @@
 
   &:hover {
     background: #F2F2F2;
+
+    .button {
+      background: variables.$redHover;
+    }
   }
 }
 

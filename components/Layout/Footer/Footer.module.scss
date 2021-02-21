@@ -1,0 +1,35 @@
+@use "components/variables";
+@use "components/utils";
+
+.root {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: utils.rem(173);
+  border-top: 2px solid variables.$red;
+}
+
+.socialNetworks {
+  display: flex;
+  margin-top: utils.rem(51);
+
+  @include utils.not-first-child {
+    margin-left: 1rem;
+  }
+
+  > a {
+    text-decoration: none;
+    color: variables.$red;
+
+    &:hover {
+      color: variables.$redHover;
+    }
+  }
+}
+
+.mainSiteLink {
+  color: variables.$red;
+  margin-top: utils.rem(71);
+  text-decoration: none;
+  font-size: utils.rem(24);
+}
