@@ -1,7 +1,9 @@
 import {
   ApiIntro,
+  ApiOutro,
   ApiTimelineBlock,
   getIntroBlock,
+  getOutroBlock,
   getTimelineBlocks,
   PrismicDocument,
 } from "../api";
@@ -10,13 +12,15 @@ import TimelineBlock from "../components/mainPage/TimelineBlock/TimelineBlock";
 
 import s from "./index.module.scss";
 import Intro from "../components/mainPage/Intro/Intro";
+import Outro from "../components/mainPage/Outro/Outro";
 
 interface Props {
   intro: PrismicDocument<ApiIntro>;
+  outro: PrismicDocument<ApiOutro>;
   textBlocks: PrismicDocument<ApiTimelineBlock>[];
 }
 
-function HomePage({ intro, textBlocks }: Props) {
+function HomePage({ intro, outro, textBlocks }: Props) {
   return (
     <Layout>
       <Intro intro={intro.data} />
@@ -29,6 +33,7 @@ function HomePage({ intro, textBlocks }: Props) {
           />
         ))}
       </div>
+      <Outro outro={outro.data} />
     </Layout>
   );
 }
@@ -41,10 +46,14 @@ export async function getStaticProps(
 }> {
   const textBlocks = await getTimelineBlocks(context.locale);
   const intro = await getIntroBlock(context.locale);
+  const outro = await getOutroBlock(context.locale);
+
+  console.log("outro", outro);
 
   return {
     props: {
       intro,
+      outro,
       textBlocks,
     },
   };

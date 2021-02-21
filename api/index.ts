@@ -57,6 +57,13 @@ export interface ApiIntro {
   donate_button: PrismicRichText;
 }
 
+export interface ApiOutro {
+  image_title: PrismicTitle;
+  body: PrismicRichText;
+  author_name: PrismicTitle;
+  author_details: PrismicTitle;
+}
+
 const LANG_TO_LOCALE = {
   en: "en-us",
   es: "es-es",
@@ -69,6 +76,14 @@ export async function getIntroBlock(
   const api = await apiPromise;
 
   return await api.getSingle("intro", { lang: LANG_TO_LOCALE[language] });
+}
+
+export async function getOutroBlock(
+  language: Language
+): Promise<PrismicDocument<ApiOutro>> {
+  const api = await apiPromise;
+
+  return await api.getSingle("outro", { lang: LANG_TO_LOCALE[language] });
 }
 
 export async function getTimelineBlocks(
