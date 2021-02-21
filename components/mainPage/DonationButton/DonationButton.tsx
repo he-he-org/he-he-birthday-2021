@@ -18,7 +18,7 @@ export default function DonationButton(props: Props) {
     <button
       className={cn(s.root)}
       onClick={() => {
-        onClick(donation.amount);
+        onClick(donation.amount * 100);
       }}
     >
       <div className={s.top}>
@@ -29,7 +29,7 @@ export default function DonationButton(props: Props) {
         <RichText className={s.details} text={donation.details} />
       </div>
       <div className={s.bottom}>
-        <div className={s.button}>${donation.amount * 100}</div>
+        <div className={s.button}>${donation.amount}</div>
       </div>
     </button>
   );
