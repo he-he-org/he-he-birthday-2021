@@ -18,10 +18,9 @@ import s from "./index.module.scss";
 import Intro from "../components/mainPage/Intro/Intro";
 import Outro from "../components/mainPage/Outro/Outro";
 import DonationButton from "../components/mainPage/DonationButton/DonationButton";
-import getStripe from "../services/stripe";
 import Title from "../components/prismic/Title/Title";
 import { useState } from "react";
-import DonateModal from "../components/mainPage/DonateModal/DonateModal.tsx";
+import DonateModal from "../components/mainPage/DonateModal/DonateModal";
 
 interface Props {
   intro: PrismicDocument<ApiIntro>;

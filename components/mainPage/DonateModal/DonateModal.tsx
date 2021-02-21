@@ -4,7 +4,7 @@ import RichText from "../../prismic/RichText/RichText";
 import s from "./DonateModal.module.scss";
 import Title from "../../prismic/Title/Title";
 import { useEffect, useState } from "react";
-import { initPayment } from "../../../services/stripe.ts";
+import { initPayment } from "../../../services/stripe";
 
 function parseNumber(string): number | null {
   if (string === "") {
