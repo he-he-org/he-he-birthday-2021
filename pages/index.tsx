@@ -1,8 +1,10 @@
 import {
+  ApiDonateModal,
   ApiDonation,
   ApiIntro,
   ApiOutro,
   ApiTimelineBlock,
+  getDonateModal,
   getDonations,
   getIntroBlock,
   getOutroBlock,
@@ -17,38 +19,38 @@ import Intro from "../components/mainPage/Intro/Intro";
 import Outro from "../components/mainPage/Outro/Outro";
 import DonationButton from "../components/mainPage/DonationButton/DonationButton";
 import getStripe from "../services/stripe";
+import Title from "../components/prismic/Title/Title";
+import { useState } from "react";
+import DonateModal from "../components/mainPage/DonateModal/DonateModal.tsx";
 
 interface Props {
   intro: PrismicDocument<ApiIntro>;
   outro: PrismicDocument<ApiOutro>;
   textBlocks: PrismicDocument<ApiTimelineBlock>[];
   donations: PrismicDocument<ApiDonation>[];
+  donateModal: PrismicDocument<ApiDonateModal>;
 }
 
-function HomePage({ intro, outro, textBlocks, donations }: Props) {
-  function handleDonate(amount: number) {
-    (async () => {
-      const stripe = await getStripe();
+function HomePage({ intro, outro, textBlocks, donations, donateModal }: Props) {
+  const [showAmountModal, setShowAmountModal] = useState(false);
+  const [amount, setAmount] = useState<number | null>(null);
 
-      // Create a new Checkout Session using the server-side endpoint you
-      // created in step 3.
-      const response = await fetch("/.netlify/functions/payment", {
-        method: "POST",
-        body: JSON.stringify({ amount }),
-      });
-      const { sessionId } = await response.json();
-      const result = await stripe.redirectToCheckout({ sessionId });
-      if (result.error) {
-        throw new Error(result.error.message);
-      }
-    })().catch((e) => {
-      // todo: make better reporting
-      console.error(e);
-    });
+  function handleInitDonate(amount: number | null) {
+    setShowAmountModal(true);
+    setAmount(amount);
   }
 
   return (
     <Layout>
+      {showAmountModal && (
+        <DonateModal
+          amount={amount}
+          donateModal={donateModal.data}
+          onClose={() => {
+            setShowAmountModal(false);
+          }}
+        />
+      )}
       <Intro intro={intro.data} />
       <div className={s.timelineBlocks}>
         {textBlocks.map((doc, i) => (
@@ -60,14 +62,24 @@ function HomePage({ intro, outro, textBlocks, donations }: Props) {
         ))}
       </div>
       <Outro outro={outro.data} />
-      <div className={s.donations}>
-        {donations.map((donation) => (
-          <DonationButton
-            onClick={handleDonate}
-            key={donation.id}
-            donation={donation.data}
-          />
-        ))}
+      <div className={s.donations} id="donations">
+        <div className={s.donationButtons}>
+          {donations.map((donation) => (
+            <DonationButton
+              onClick={handleInitDonate}
+              key={donation.id}
+              donation={donation.data}
+            />
+          ))}
+        </div>
+        <button
+          className={s.customDonateButton}
+          onClick={() => {
+            handleInitDonate(null);
+          }}
+        >
+          <Title text={donateModal.data.custom_donate_button} />
+        </button>
       </div>
       <img className={s.footerPicture} src="/footer_picture.svg" />
     </Layout>
@@ -84,6 +96,7 @@ export async function getStaticProps(
   const intro = await getIntroBlock(context.locale);
   const outro = await getOutroBlock(context.locale);
   const donations = await getDonations(context.locale);
+  const donateModal = await getDonateModal(context.locale);
 
   return {
     props: {
@@ -91,6 +104,7 @@ export async function getStaticProps(
       outro,
       textBlocks,
       donations,
+      donateModal,
     },
   };
 }

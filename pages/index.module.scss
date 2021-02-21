@@ -12,12 +12,28 @@
 }
 
 .donations {
-  display: flex;
   margin-top: utils.rem(106);
+}
+
+.donationButtons {
+  display: flex;
 
   @include utils.not-first-child {
     margin-left: utils.rem(20);
   }
+}
+
+.customDonateButton {
+  display: flex;
+  border: 4px solid variables.$red;
+  background: transparent;
+  min-height: utils.rem(68);
+  border-radius: utils.rem(9);
+  align-items: center;
+  text-align: center;
+  font-size: utils.rem(24);
+  padding: utils.rem(8) utils.rem(26);
+  margin: utils.rem(56) auto 0 auto;
 }
 
 .footerPicture {

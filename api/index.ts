@@ -66,6 +66,12 @@ export interface ApiOutro {
   author_details: PrismicTitle;
 }
 
+export interface ApiDonateModal {
+  custom_donate_button: PrismicTitle;
+  amount_label: PrismicTitle;
+  confirm_button: PrismicTitle;
+}
+
 export interface ApiDonation {
   title: PrismicTitle;
   details: PrismicRichText;
@@ -93,6 +99,16 @@ export async function getOutroBlock(
   const api = await apiPromise;
 
   return await api.getSingle("outro", { lang: LANG_TO_LOCALE[language] });
+}
+
+export async function getDonateModal(
+  language: Language
+): Promise<PrismicDocument<ApiDonateModal>> {
+  const api = await apiPromise;
+
+  return await api.getSingle("donate_modal", {
+    lang: LANG_TO_LOCALE[language],
+  });
 }
 
 export async function getTimelineBlocks(

@@ -17,9 +17,9 @@ export default function Intro(props: Props): JSX.Element {
         <div className={s.logo}>
           <img width={328} height={85} src="/logo.svg" />
         </div>
-        <button className={s.donateButton}>
+        <a href="#donations" className={s.donateButton}>
           <Title text={intro.donate_button} />
-        </button>
+        </a>
       </div>
       <div className={s.right}>
         <h1 className={s.title}>

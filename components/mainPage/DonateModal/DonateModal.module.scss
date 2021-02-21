@@ -1,0 +1,97 @@
+@use "../../utils";
+@use "../../variables";
+
+.root {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: #0b0000a8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: white;
+  border-radius: 0.2rem;
+  height: utils.rem(410);
+  width: utils.rem(768);
+  max-width: 95vw;
+  max-height: 95vh;
+  position: relative;
+}
+
+.cross {
+  position: absolute;
+  top: utils.rem(48);
+  right: utils.rem(48);
+  cursor: pointer;
+}
+
+.pic1 {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.pic2 {
+  position: relative;
+  > img {
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+}
+
+.form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  flex-direction: column;
+  background: #ffffff82;
+  z-index: 1;
+  padding: 1rem;
+  border-radius: 0.2rem;
+}
+
+.input {
+  grid-column: span 2;
+  background: #F2F2F2;
+  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: utils.rem(9);
+  min-height: utils.rem(61);
+  padding: utils.rem(4) utils.rem(20);
+  border: none;
+  font-size: utils.rem(24);
+}
+
+.button {
+  background: variables.$red;
+  min-height: utils.rem(61);
+  color: white;
+  font-size: utils.rem(24);
+  padding: 0 utils.rem(26);
+  white-space: nowrap;
+  border-radius: utils.rem(9);
+  border: none;
+  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+  padding-bottom: 2px;
+  margin-top: utils.rem(29);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 300ms;
+
+  &:disabled {
+    opacity: 0.25;
+  }
+
+  &:hover {
+    background: variables.$redHover;
+  }
+}

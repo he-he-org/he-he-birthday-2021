@@ -18,7 +18,7 @@ export default function DonationButton(props: Props) {
     <button
       className={cn(s.root)}
       onClick={() => {
-        onClick(donation.amount * 100);
+        onClick(donation.amount);
       }}
     >
       <div className={s.top}>
