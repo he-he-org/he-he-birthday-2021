@@ -13,9 +13,9 @@ exports.handler = async function (event, context) {
           price_data: {
             currency: "usd",
             product_data: {
-              name: "T-shirt",
+              name: "Donation for birthday",
             },
-            unit_amount: 1,
+            unit_amount: 100,
           },
           quantity: 1,
         },
