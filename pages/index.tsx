@@ -16,6 +16,7 @@ import s from "./index.module.scss";
 import Intro from "../components/mainPage/Intro/Intro";
 import Outro from "../components/mainPage/Outro/Outro";
 import DonationButton from "../components/mainPage/DonationButton/DonationButton";
+import getStripe from "../services/stripe";
 
 interface Props {
   intro: PrismicDocument<ApiIntro>;
@@ -25,6 +26,27 @@ interface Props {
 }
 
 function HomePage({ intro, outro, textBlocks, donations }: Props) {
+  function handleDonate(amount: number) {
+    (async () => {
+      const stripe = await getStripe();
+
+      // Create a new Checkout Session using the server-side endpoint you
+      // created in step 3.
+      const response = await fetch("/.netlify/functions/payment", {
+        method: "POST",
+        body: JSON.stringify({ amount }),
+      });
+      const { sessionId } = await response.json();
+      const result = await stripe.redirectToCheckout({ sessionId });
+      if (result.error) {
+        throw new Error(result.error.message);
+      }
+    })().catch((e) => {
+      // todo: make better reporting
+      console.error(e);
+    });
+  }
+
   return (
     <Layout>
       <Intro intro={intro.data} />
@@ -40,7 +62,11 @@ function HomePage({ intro, outro, textBlocks, donations }: Props) {
       <Outro outro={outro.data} />
       <div className={s.donations}>
         {donations.map((donation) => (
-          <DonationButton key={donation.id} donation={donation.data} />
+          <DonationButton
+            onClick={handleDonate}
+            key={donation.id}
+            donation={donation.data}
+          />
         ))}
       </div>
     </Layout>
