@@ -10,3 +10,12 @@
     margin-top: utils.rem(60);
   }
 }
+
+.donations {
+  display: flex;
+  margin-top: utils.rem(106);
+
+  @include utils.not-first-child {
+    margin-left: utils.rem(20);
+  }
+}

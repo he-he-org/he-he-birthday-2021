@@ -30,6 +30,8 @@ export type PrismicTitle = PrismicTextItem<
 
 export type PrismicRichText = PrismicTextItem<"paragraph">[];
 
+export type PrismicNumber = number;
+
 export interface PrismicImage {
   dimensions: {
     width: number;
@@ -64,6 +66,13 @@ export interface ApiOutro {
   author_details: PrismicTitle;
 }
 
+export interface ApiDonation {
+  title: PrismicTitle;
+  details: PrismicRichText;
+  amount: PrismicNumber;
+  image: PrismicImage;
+}
+
 const LANG_TO_LOCALE = {
   en: "en-us",
   es: "es-es",
@@ -94,6 +103,18 @@ export async function getTimelineBlocks(
   const response = await api.query(
     Prismic.Predicates.at("document.type", "timeline-block"),
     { lang: LANG_TO_LOCALE[language], orderings: "[my.timeline-block.date]" }
+  );
+  return response.results;
+}
+
+export async function getDonations(
+  language: Language
+): Promise<PrismicDocument<ApiDonation>[]> {
+  const api = await apiPromise;
+
+  const response = await api.query(
+    Prismic.Predicates.at("document.type", "donation"),
+    { lang: LANG_TO_LOCALE[language], orderings: "[my.donation.amount]" }
   );
   return response.results;
 }

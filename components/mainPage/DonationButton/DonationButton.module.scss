@@ -1,0 +1,58 @@
+@use "../../utils";
+@use "../../variables";
+
+.root {
+  border: 1px solid #e5e5e5;
+  border-radius: utils.rem(30);
+  padding: utils.rem(48) utils.rem(34);
+  background: transparent;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  flex: 1;
+  justify-content: space-between;
+
+  &:hover {
+    background: #F2F2F2;
+  }
+}
+
+.button {
+  background: variables.$red;
+  min-height: utils.rem(76);
+  color: white;
+  font-size: utils.rem(36);
+  font-weight: 700;
+  padding: 0 utils.rem(32);
+  white-space: nowrap;
+  border-radius: utils.rem(9);
+  border: none;
+  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  min-width: utils.rem(136);
+}
+
+.title {
+  font-size: utils.rem(20);
+  margin-top: utils.rem(16);
+  font-weight: 500;
+}
+
+.details {
+  font-size: utils.rem(16);
+  font-weight: 300;
+  margin-top: utils.rem(16);
+}
+
+.top {
+
+}
+
+.bottom {
+  display: flex;
+  justify-content: center;
+  margin-top: utils.rem(28);
+}
