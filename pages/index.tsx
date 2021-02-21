@@ -16,9 +16,6 @@ import s from "./index.module.scss";
 import Intro from "../components/mainPage/Intro/Intro";
 import Outro from "../components/mainPage/Outro/Outro";
 import DonationButton from "../components/mainPage/DonationButton/DonationButton";
-import { useEffect } from "react";
-import { Stripe } from "@stripe/stripe-js";
-import getStripe from "../services/stripe.ts";
 
 interface Props {
   intro: PrismicDocument<ApiIntro>;

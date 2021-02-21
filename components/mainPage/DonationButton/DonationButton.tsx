@@ -1,14 +1,11 @@
-import { format } from "date-fns";
 import cn from "clsx";
-import { Stripe } from "@stripe/stripe-js";
 
 import s from "./DonationButton.module.scss";
-import { ApiDonation, ApiTimelineBlock } from "../../../api";
+import { ApiDonation } from "../../../api";
 import RichText from "../../prismic/RichText/RichText";
 import Image from "../../prismic/Image/Image";
-import { useDateFnsLocale } from "../../../services/i18n/dateFns";
 import Title from "../../prismic/Title/Title";
-import getStripe from "../../../services/stripe.ts";
+import getStripe from "../../../services/stripe";
 
 interface Props {
   donation: ApiDonation;
