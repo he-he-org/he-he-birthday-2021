@@ -1,4 +1,4 @@
-const stripe = require("stripe")();
+const stripe = require("stripe");
 
 const SECRET_KEY = process.env.STRIPE_SECRET_KEY;
 
