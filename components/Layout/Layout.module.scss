@@ -1,9 +1,6 @@
 @use "../utils";
 @use "../variables";
 
-.root {
-
-}
 
 .content {
   max-width: 1280px;
@@ -15,5 +12,11 @@
 @include utils.small {
   .content {
     padding: 16px;
+  }
+}
+
+@include utils.medium {
+  .content {
+    max-width: 1024px;
   }
 }
