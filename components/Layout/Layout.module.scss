@@ -1,3 +1,6 @@
+@use "../utils";
+@use "../variables";
+
 .root {
 
 }
@@ -7,4 +10,10 @@
   margin: 1rem auto;
   padding: 10px 40px;
   box-sizing: content-box;
+}
+
+@include utils.small {
+  .content {
+    padding: 16px;
+  }
 }

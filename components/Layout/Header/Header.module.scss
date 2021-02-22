@@ -6,6 +6,7 @@
   justify-content: space-between;
   margin-bottom: utils.rem(69);
   align-items: center;
+  font-weight: 300;
 
   @include utils.not-first-child {
     margin-left: utils.rem(22);
@@ -41,5 +42,27 @@
 
   &.isActive {
     color: variables.$red;
+  }
+}
+
+@include utils.small {
+  .root {
+    border-bottom: 4px solid variables.$red;
+    padding-bottom: utils.rem(13);
+    margin-bottom: utils.rem(40);
+  }
+
+  .backLink {
+    > span {
+      margin-left: 0;
+    }
+
+    > img {
+      display: none;
+    }
+  }
+
+  .line {
+    display: none;
   }
 }

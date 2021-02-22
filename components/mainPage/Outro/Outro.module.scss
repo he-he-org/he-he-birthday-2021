@@ -8,14 +8,18 @@
   margin-top: utils.rem(94);
 }
 
-.image {
+.left {
   grid-column-start: 1;
+}
+
+.image {
+  max-width: 100%;
 }
 
 .imageTitle {
   font-size: utils.rem(93);
   color: variables.$red;
-  line-height: utils.rem(71);
+  line-height: 1;
 }
 
 .main {
@@ -64,4 +68,14 @@
   font-weight: 300;
   margin-left: 1em;
   margin-top: 0.4em;
+}
+
+@include utils.small {
+  .imageTitle {
+    font-size: utils.rem(36)
+  }
+
+  .root {
+    grid-template-columns: auto;
+  }
 }

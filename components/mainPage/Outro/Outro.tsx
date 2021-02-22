@@ -13,8 +13,8 @@ export default function Outro(props: Props) {
   const { outro } = props;
   return (
     <div className={cn(s.root)}>
-      <img src="/bird.svg" />
-      <div className={s.image}>
+      <img src="/bird.svg" className={s.image} />
+      <div className={s.left}>
         <Title className={s.imageTitle} text={outro.image_title} />
       </div>
       <div className={s.main}>

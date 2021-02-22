@@ -72,3 +72,22 @@
 .body2 {
   margin-top: utils.rem(73);
 }
+
+.logo,
+.image {
+  max-width: 100%;
+}
+
+@include utils.small {
+  .donateButton {
+    font-size: utils.rem(24);
+  }
+
+  .root {
+    grid-template-columns: auto;
+  }
+
+  .title {
+    font-size: utils.rem(26);
+  }
+}

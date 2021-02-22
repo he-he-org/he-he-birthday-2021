@@ -9,3 +9,9 @@
 @function rem($px) {
   @return #{($px / variables.$default-font-size)}rem;
 }
+
+@mixin small {
+  @media (max-width: 480px) {
+    @content
+  }
+}

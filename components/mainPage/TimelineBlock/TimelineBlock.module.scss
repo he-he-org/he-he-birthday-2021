@@ -3,7 +3,7 @@
 
 .root {
   display: grid;
-  grid-template-columns: auto auto;
+  grid-template-columns: 1fr 1fr;
   grid-template-areas: "image main";
   grid-gap: 3rem;
 
@@ -66,3 +66,11 @@
   margin-left: 1em;
   margin-top: 0.4em;
 }
+
+@include utils.small {
+  .root {
+    grid-template-columns: 1fr;
+    grid-template-areas: "main main" "image image" !important;
+  }
+}
+
