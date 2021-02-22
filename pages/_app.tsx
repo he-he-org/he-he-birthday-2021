@@ -19,8 +19,8 @@ function MyApp({ Component, pageProps }: AppProps) {
         />
         <script
           async
-          src="https://www.googletagmanager.com/gtag/js?id=UA-167219453-1"
-        />
+          src="https://www.googletagmanager.com/gtag/js?id=G-79YJ0FK6VJ"
+        ></script>
         <script
           dangerouslySetInnerHTML={{
             __html: `
@@ -29,7 +29,7 @@ function MyApp({ Component, pageProps }: AppProps) {
                 dataLayer.push(arguments);
               }
               gtag("js", new Date());
-              gtag("config", "UA-167219453-1");
+              gtag("config", 'G-79YJ0FK6VJ');
             `,
           }}
         />
