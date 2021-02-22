@@ -7,7 +7,7 @@
   margin-top: utils.rem(112);
 
   @include utils.not-first-child {
-    margin-top: utils.rem(60);
+    margin-top: utils.rem(80);
   }
 }
 

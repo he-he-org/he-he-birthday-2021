@@ -4,12 +4,24 @@
 .root {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-areas: "image main";
-  grid-gap: 3rem;
+  grid-template-areas:
+    "image smallImage"
+    "image date"
+    "image title"
+    "image text";
+  grid-column-gap: 3rem;
 
   &.imagePosition-RIGHT {
-    grid-template-areas: "main image";
+    grid-template-areas:
+      "smallImage image"
+      "date image"
+      "title image"
+      "text image";
   }
+}
+
+.smallImage {
+  grid-area: smallImage;
 }
 
 .image {
@@ -42,6 +54,10 @@
   margin-top: utils.rem(16);
 }
 
+.text {
+  grid-area: text;
+}
+
 .body {
   font-size: utils.rem(16);
   line-height: 1.375;
@@ -70,7 +86,23 @@
 @include utils.small {
   .root {
     grid-template-columns: 1fr;
-    grid-template-areas: "main main" "image image" !important;
+
+    &.imagePosition-RIGHT,
+    &.imagePosition-LEFT {
+      grid-template-areas:
+        "smallImage"
+        "date"
+        "title"
+        "image"
+        "text";
+    }
+  }
+
+  .image {
+    margin-top: utils.rem(18);
+  }
+
+  .body {
+    font-size: utils.rem(18);
   }
 }
-

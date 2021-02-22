@@ -5,20 +5,16 @@
   display: grid;
   grid-template-columns: max-content auto;
   grid-gap: 4.375rem;
+  grid-template-areas: "image text" "logo text" "button body2";
+  justify-items: center;
 }
-
-.left {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
 
 .logo {
-  margin-top: utils.rem(34)
+  grid-area: logo;
 }
 
 .donateButton {
+  grid-area: button;
   background: variables.$red;
   min-height: utils.rem(76);
   color: white;
@@ -29,7 +25,6 @@
   border: none;
   box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
   padding-bottom: 4px;
-  margin-top: utils.rem(78);
   text-decoration: none;
   display: flex;
   align-items: center;
@@ -39,7 +34,12 @@
   }
 }
 
-.right {
+.image {
+  grid-area: image;
+}
+
+.text {
+  grid-area: text;
   display: flex;
   flex-direction: column;
 }
@@ -54,6 +54,7 @@
 
 .body,
 .body2 {
+  grid-area: body2;
   font-size: variables.$font-size-2;
   font-weight: 300;
   line-height: 1.375;
@@ -70,7 +71,8 @@
 }
 
 .body2 {
-  margin-top: utils.rem(73);
+  justify-self: flex-start;
+  align-self: center;
 }
 
 .logo,
@@ -85,9 +87,19 @@
 
   .root {
     grid-template-columns: auto;
+    grid-template-areas: "image" "text" "button" "body2";
+  }
+
+  .logo {
+    display: none;
   }
 
   .title {
     font-size: utils.rem(26);
+    margin-top: 0;
+  }
+
+  .body2 {
+    text-align: center;
   }
 }

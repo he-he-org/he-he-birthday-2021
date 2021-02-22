@@ -21,14 +21,14 @@ export default function TimelineBlock(props: Props) {
       <div className={s.image}>
         <Image image={timelineBlock.image} />
       </div>
-      <div className={s.main}>
-        <Image image={timelineBlock.small_title_image} />
-        <h2 className={s.date}>
-          {format(new Date(timelineBlock.date), "LLLL yyyy", {
-            locale: locale,
-          })}
-        </h2>
-        <h2 className={s.title}>{timelineBlock.title[0].text}</h2>
+      <Image className={s.smallImage} image={timelineBlock.small_title_image} />
+      <h2 className={s.date}>
+        {format(new Date(timelineBlock.date), "LLLL yyyy", {
+          locale: locale,
+        })}
+      </h2>
+      <h2 className={s.title}>{timelineBlock.title[0].text}</h2>
+      <div className={s.text}>
         <RichText className={s.body} text={timelineBlock.body} />
         <div className={s.authorName}>
           <Title text={timelineBlock.author_name} />,

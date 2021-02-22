@@ -31,6 +31,7 @@
   top: utils.rem(48);
   right: utils.rem(48);
   cursor: pointer;
+  z-index: 2;
 }
 
 .pic1 {
@@ -93,5 +94,32 @@
 
   &:hover {
     background: variables.$redHover;
+  }
+}
+
+
+@include utils.small {
+  .content {
+    height: 66vh;
+    align-items: flex-end;
+  }
+
+  .pic1 {
+    left: utils.rem(-100)
+  }
+
+  .form {
+    grid-template-columns: 1fr;
+  }
+
+  .input {
+    grid-column: span 1;
+  }
+
+  .pic2 {
+    order: +1;
+    > img {
+      position: static;
+    }
   }
 }

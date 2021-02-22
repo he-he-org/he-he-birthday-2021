@@ -35,8 +35,13 @@ export default function DonateModal(props: Props): JSX.Element {
   }, [amount]);
 
   return (
-    <div className={s.root}>
-      <div className={s.content}>
+    <div className={s.root} onClick={onClose}>
+      <div
+        className={s.content}
+        onClick={(e) => {
+          e.stopPropagation();
+        }}
+      >
         <img
           className={s.cross}
           alt="Close modal"
