@@ -41,7 +41,7 @@
   max-width: 100%;
 }
 
-@include utils.small {
+@include utils.medium {
   .donationButtons {
     flex-direction: column;
 

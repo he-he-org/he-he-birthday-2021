@@ -74,6 +74,10 @@
   .root {
     padding: utils.rem(16) utils.rem(24);
     align-items: stretch;
+
+    &:hover {
+
+    }
   }
 
   .title {
@@ -86,7 +90,8 @@
     margin-top: 0;
   }
 
-  .button {
+  .button,
+  .root:hover .button {
     background: transparent;
     color: variables.$red;
     box-shadow: none;

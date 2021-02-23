@@ -6,12 +6,12 @@
   grid-template-columns: 6fr 8fr;
   grid-column-gap: utils.rem(70);
   grid-row-gap: utils.rem(20);
-  grid-template-areas: "image text" "logo text" "button body2";
+  grid-template-areas: "images text" "images text" "button body2";
   justify-items: center;
 }
 
 .logo {
-  grid-area: logo;
+  margin-top: utils.rem(16);
 }
 
 .donateButton {
@@ -35,8 +35,14 @@
   }
 }
 
+.images {
+  grid-area: images;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .image {
-  grid-area: image;
 }
 
 .text {
@@ -88,7 +94,7 @@
 
   .root {
     grid-template-columns: auto;
-    grid-template-areas: "image" "text" "button" "body2";
+    grid-template-areas: "images" "text" "button" "body2";
   }
 
   .logo {

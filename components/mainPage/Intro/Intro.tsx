@@ -12,8 +12,10 @@ export default function Intro(props: Props): JSX.Element {
   const { intro } = props;
   return (
     <div className={s.root}>
-      <img src="/intro_image.svg" className={s.image} />
-      <img src="/logo.svg" className={s.logo} />
+      <div className={s.images}>
+        <img src="/intro_image.svg" className={s.image} />
+        <img src="/logo.svg" className={s.logo} />
+      </div>
       <a href="#donations" className={s.donateButton}>
         <Title text={intro.donate_button} />
       </a>
