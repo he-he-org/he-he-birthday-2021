@@ -90,7 +90,7 @@ export default function DonateModal(props: Props): JSX.Element {
             </div>
           )}
           <input
-            inputmode="numeric"
+            inputMode="numeric"
             className={s.input}
             placeholder={donateModal.amount_label
               .map(({ text }) => text)
