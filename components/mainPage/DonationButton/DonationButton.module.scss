@@ -11,14 +11,19 @@
   text-align: left;
   flex: 1;
   justify-content: space-between;
+  position: relative;
 
   &:hover {
-    background: #F2F2F2;
+    background: #f2f2f2;
 
     .button {
       background: variables.$redHover;
     }
   }
+}
+
+.content {
+  position: relative;
 }
 
 .button {
@@ -52,7 +57,9 @@
 }
 
 .top {
+}
 
+.imageContainer {
 }
 
 .bottom {
@@ -61,4 +68,48 @@
   margin-top: utils.rem(28);
   margin-left: auto;
   margin-right: auto;
+}
+
+@include utils.small {
+  .root {
+    padding: utils.rem(16) utils.rem(24);
+    align-items: stretch;
+  }
+
+  .title {
+    margin-top: 0;
+    font-weight: 600;
+  }
+
+  .bottom {
+    justify-content: flex-start;
+    margin-top: 0;
+  }
+
+  .button {
+    background: transparent;
+    color: variables.$red;
+    box-shadow: none;
+    margin: 0;
+    padding: 0;
+    min-width: unset;
+    font-size: utils.rem(54);
+    font-weight: 500;
+    line-height: 1;
+    align-items: flex-end;
+  }
+
+  .imageContainer {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+
+    img {
+      max-height: utils.rem(64);
+    }
+  }
+
+  .details {
+    display: none;
+  }
 }

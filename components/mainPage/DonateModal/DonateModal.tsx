@@ -1,4 +1,4 @@
-import { ApiDonateModal, ApiIntro } from "../../../api";
+import { ApiDonateModal, ApiDonation, ApiIntro } from "../../../api";
 import RichText from "../../prismic/RichText/RichText";
 
 import s from "./DonateModal.module.scss";
@@ -15,17 +15,21 @@ function parseNumber(string): number | null {
   if (Number.isNaN(parsed)) {
     return null;
   }
+  if (parsed < 1) {
+    return null;
+  }
   return parsed;
 }
 
 interface Props {
   amount: number | null;
   donateModal: ApiDonateModal;
+  allDonations: ApiDonation[];
   onClose: () => void;
 }
 
 export default function DonateModal(props: Props): JSX.Element {
-  const { donateModal, amount, onClose } = props;
+  const { allDonations, donateModal, amount, onClose } = props;
   const [value, setValue] = useState("");
   const [loading, setLoading] = useState(false);
   const parsed = parseNumber(value);
@@ -33,6 +37,8 @@ export default function DonateModal(props: Props): JSX.Element {
   useEffect(() => {
     setValue(amount == null ? "" : amount.toFixed(2));
   }, [amount]);
+
+  const selectedDonation = allDonations.find((x) => x.amount === amount);
 
   return (
     <div className={s.root} onClick={onClose}>
@@ -71,7 +77,20 @@ export default function DonateModal(props: Props): JSX.Element {
             }
           }}
         >
+          {selectedDonation && (
+            <div className={s.description}>
+              <Title
+                className={s.descriptionTitle}
+                text={selectedDonation.title}
+              />
+              <RichText
+                className={s.descriptionDetails}
+                text={selectedDonation.details}
+              />
+            </div>
+          )}
           <input
+            inputmode="numeric"
             className={s.input}
             placeholder={donateModal.amount_label
               .map(({ text }) => text)
@@ -80,6 +99,8 @@ export default function DonateModal(props: Props): JSX.Element {
             onChange={(e) => {
               setValue(e.currentTarget.value);
             }}
+            min="1"
+            disabled={amount != null}
           />
           <div className={s.pic2}>
             <img role="presentation" src="/donate_modal_pic2.svg" />

@@ -21,15 +21,19 @@ export default function DonationButton(props: Props) {
         onClick(donation.amount);
       }}
     >
-      <div className={s.top}>
-        <Image image={donation.image} />
-        <h3 className={s.title}>
-          <Title text={donation.title} />
-        </h3>
-        <RichText className={s.details} text={donation.details} />
-      </div>
-      <div className={s.bottom}>
-        <div className={s.button}>${donation.amount}</div>
+      <div className={cn(s.content)}>
+        <div className={s.top}>
+          <div className={s.imageContainer}>
+            <Image image={donation.image} />
+          </div>
+          <h3 className={s.title}>
+            <Title text={donation.title} />
+          </h3>
+          <RichText className={s.details} text={donation.details} />
+        </div>
+        <div className={s.bottom}>
+          <div className={s.button}>${donation.amount}</div>
+        </div>
       </div>
     </button>
   );

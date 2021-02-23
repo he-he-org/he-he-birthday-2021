@@ -45,6 +45,7 @@ function HomePage({ intro, outro, textBlocks, donations, donateModal }: Props) {
         <DonateModal
           amount={amount}
           donateModal={donateModal.data}
+          allDonations={donations.map(({ data }) => data)}
           onClose={() => {
             setShowAmountModal(false);
           }}

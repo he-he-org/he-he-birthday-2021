@@ -9,7 +9,7 @@ function MyApp({ Component, pageProps }: AppProps) {
     <>
       <Head>
         <meta
-          http-equiv="Content-Security-Policy"
+          httpEquiv="Content-Security-Policy"
           content="default-src 'self' 'unsafe-eval' 'unsafe-inline' https://*"
         />
         <link rel="preconnect" href="https://fonts.gstatic.com" />
